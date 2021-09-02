@@ -1,15 +1,18 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS transactions;
+
 CREATE TABLE users (
-    id BIGINT GENERATED ALWAYS AS PRIMARY KEY,
-    username TEXT
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    username TEXT,
     userpoints INTEGER
-)
+);
 
 CREATE TABLE transactions (
-    id BIGINT GENERATED ALWAYS AS PRIMARY KEY,
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     payer TEXT,
     points INTEGER,
     stamp TIMESTAMP  
-)
+);
 
 
 

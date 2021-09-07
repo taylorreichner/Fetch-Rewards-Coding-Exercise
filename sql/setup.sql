@@ -4,14 +4,19 @@ DROP TABLE IF EXISTS transactions;
 CREATE TABLE users (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     username TEXT,
-    userpoints INTEGER
+    user_points INTEGER
 );
 
 CREATE TABLE transactions (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     payer TEXT,
     points INTEGER,
-    stamp TIMESTAMP  
+    stamp TIMESTAMP,
+    linked_user BIGINT,
+    CONSTRAINT fk_app
+    FOREIGN KEY(linked_user)
+    REFERENCES users(id)
+    
 );
 
 
